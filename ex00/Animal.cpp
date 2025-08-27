@@ -3,7 +3,7 @@
 Animal::Animal()
 {
     this->_type = "Random_animal";
-    std::cout << "A " << this->_type << " was born." << std::endl;
+    std::cout << "A " << this->_type << " is born." << std::endl;
 }
 
 Animal::~Animal()
@@ -11,7 +11,7 @@ Animal::~Animal()
     std::cout << "A " << this->_type << " is DEAD." << std::endl;
 }
 
-Animal::Animal(const Animal& other)
+Animal::Animal(const Animal& other) 
 {
     this->_type = other._type;
     std::cout << "An animal cloned himself from a " << other._type << std::endl;
