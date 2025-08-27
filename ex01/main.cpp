@@ -1,8 +1,6 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
 #include "iostream"
 
 int main(void)
@@ -46,26 +44,15 @@ std::cout << "\n";
 
 std::cout << "\033[1mZOO TESTS :\033[0m" << std::endl;
 Animal* zoo[4];
-for (int i = 0; i < 4; i++)
+for (int i = 0; i < 4; ++i)
     if (i % 2 == 0)
         zoo[i] = new Cat();
     else
         zoo[i] = new Dog();;
-for (int i = 0; i < 4; i++)
+for (int i = 0; i < 4; ++i)
     zoo[i]->makeSound();
-for (int i = 0; i < 4; i++)
+for (int i = 0; i < 4; ++i)
     delete zoo[i];
-std::cout << "\n";
-
-std::cout << "\033[1mWRONG ANIMAL TESTS :\033[0m" << std::endl;
-const WrongAnimal* Wronga = new WrongAnimal();
-const WrongAnimal* Wrongb = new WrongCat();
-std::cout << "Wronga: " << Wronga->getType() << '\n';
-Wronga->makeSound();
-std::cout << "Wrongb: " << Wrongb->getType() << '\n';
-Wrongb->makeSound();
-delete Wronga;
-delete Wrongb;
 std::cout << "\n";
 
 std::cout << "\033[1mMASSIVE EXTINCTON :\033[0m" << std::endl;
