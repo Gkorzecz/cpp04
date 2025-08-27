@@ -1,24 +1,28 @@
-	NAME    = Animalia
-    CXX     = c++
-    CXXFLAGS= -Wall -Wextra -Werror -std=c++98
+NAME      := Animalia
+CXX       := c++
+CXXFLAGS  := -Wall -Wextra -Werror -std=c++98
 
-    SRC = main.cpp Animal.cpp Cat.cpp Dog.cpp
-    OBJ = $(SRC:.cpp=.o)
+SRC       := main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
+OBJ_DIR   := obj
+OBJ       := $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
 
-    all: $(NAME)
+all: $(NAME)
 
-    $(NAME): $(OBJ)
-	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
+$(OBJ_DIR):
+	@mkdir -p $@
 
-    %.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-    clean:
-	$(RM) $(OBJ)
+$(NAME): $(OBJ)
+	$(CXX) $(CXXFLAGS) $^ -o $@
 
-    fclean: clean
+clean:
+	$(RM) -r $(OBJ_DIR)
+
+fclean: clean
 	$(RM) $(NAME)
 
-    re: fclean all
+re: fclean all
 
-    .PHONY: all clean fclean re
+.PHONY: all clean fclean re

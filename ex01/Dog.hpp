@@ -3,10 +3,12 @@
 
 # include "Animal.hpp"
 # include <iostream>
+# include "Brain.hpp"
 
 class Dog : public Animal
 {
 private:
+    Brain* _brain;
 
 public:
     Dog();
@@ -15,6 +17,8 @@ public:
     ~Dog();
 
     void makeSound() const;
+    const std::string& getIdea(std::size_t i) const;
+    void  setIdea(std::size_t i, const std::string& idea);
 };
 
 #endif
