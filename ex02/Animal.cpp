@@ -34,8 +34,3 @@ const std::string Animal::getType(void) const
 {
     return (this->_type);
 }
-
-/*void    Animal::makeSound() const
-{
-    std::cout << "## RANDOM ANIMAL NOISES ##" << std::endl;
-}*/
